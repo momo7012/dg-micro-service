@@ -6,6 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="dg-external-client-provider2" />
+        <module name="dg-external-client-provider1" />
+        <module name="dg-external-client-notification" />
         <module name="dg-persistence-switch" />
       </profile>
     </annotationProcessing>
