@@ -12,6 +12,7 @@
         <module>dg-parent</module>
         <module>dg-persistence</module>
         <module>dg-external-client</module>
+        <module>dg-endpoint</module>
 
     </modules>
 

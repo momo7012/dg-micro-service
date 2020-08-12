@@ -6,8 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="dg-endpoint-notification" />
         <module name="dg-external-client-provider2" />
         <module name="dg-external-client-provider1" />
+        <module name="dg-endpoint-payment" />
         <module name="dg-external-client-notification" />
         <module name="dg-persistence-switch" />
       </profile>
