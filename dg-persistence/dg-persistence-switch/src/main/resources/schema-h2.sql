@@ -7,7 +7,6 @@ drop table if exists CARD.SCARD;
 drop table if exists COMMON.CUSTOMER;
 drop table if exists transaction.request;
 drop table if exists transaction.response;
-
 /*==============================================================*/
 
 
@@ -74,3 +73,6 @@ create table transaction.response
     CTIME VARCHAR(255),
     PRIMARY KEY (TRNO)
 );
+
+
+commit;
