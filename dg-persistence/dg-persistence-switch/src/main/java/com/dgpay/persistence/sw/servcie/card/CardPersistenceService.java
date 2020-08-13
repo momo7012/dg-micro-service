@@ -2,9 +2,11 @@ package com.dgpay.persistence.sw.servcie.card;
 
 import com.dgpay.persistence.sw.dao.card.CardDao;
 import com.dgpay.persistence.sw.model.card.Card;
+import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,18 +19,41 @@ public class CardPersistenceService {
     @Autowired
     private CardDao cardDao;
 
-    public List<Card> cardList(Long uid){
+    public Card addCard(Long customerNumber) {
 
-        List<Card> cards = cardDao.selectByCustomerUid(uid);
+        // TODO: 8/13/2020 check customer
 
+        Card card = new Card();
+
+        card.setCustomer_uid(customerNumber);
+        card.setPan(generatePan());
+        card.setPin(generatePin(1));
+        card.setPin2(generatePin(2));
+        card.setExpire_date(DateUtils.addYears(new Date(), +4));
+        card.setStatus(1);
+
+        cardDao.insert(card);
+        return card;
+    }
+
+    private String generatePin(int type) {
+        // TODO: 8/13/2020 generate pin
+        return null;
+    }
+
+    private Long generatePan() {
+        // TODO: 8/13/2020 create pan
+        return 111111111L;
+    }
+
+    public List<Card> getCardListByCustomerNumber(Long customerNumber) {
+
+        List<Card> cards = cardDao.selectByCustomerUid(customerNumber);
         return cards;
     }
 
-    public void addCard(Card card){
+    public void deleteCardByPanAndCustomerNumber(Long pan, Long customerNumber) {
 
-    }
-
-    public void deleteCard(String pan){
-
+        cardDao.deleteCard(pan, customerNumber);
     }
 }

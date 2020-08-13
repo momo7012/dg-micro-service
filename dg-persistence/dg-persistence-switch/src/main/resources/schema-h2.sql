@@ -1,12 +1,14 @@
 CREATE SCHEMA IF NOT EXISTS COMMON;
 CREATE SCHEMA IF NOT EXISTS CARD;
 CREATE SCHEMA IF NOT EXISTS TRANSACTION;
+CREATE SCHEMA IF NOT EXISTS REPORT;
 
 /*==============================================================*/
 drop table if exists CARD.SCARD;
 drop table if exists COMMON.CUSTOMER;
 drop table if exists transaction.request;
 drop table if exists transaction.response;
+drop table if exists REPORT.TRANSACTION_SUM_COUNT_PER_DATE;
 /*==============================================================*/
 
 
@@ -75,4 +77,16 @@ create table transaction.response
 );
 
 
+
+create table  REPORT.TRANSACTION_SUM_COUNT_PER_DATE
+(
+    PAN                   DECIMAL(19),
+    SCUSTOMER_UID         DECIMAL(19),
+    SCARD_UID             DECIMAL(19),
+    CDATE                 INTEGER,
+    COUNNT_success        DECIMAL(12),
+    COUNNT_UNsuccess      DECIMAL(12),
+    AMOUNT_success        DECIMAL(12),
+    AMOUNT_UNsuccess      DECIMAL(12)
+);
 commit;

@@ -2,19 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>dg-parent</artifactId>
+        <groupId>com.dgpay.sw</groupId>
+        <version>${revision}${changelist}</version>
+        <relativePath>../dg-parent/pom.xml</relativePath>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.dgpay.sw</groupId>
-    <artifactId>dg-micro-service</artifactId>
+    <artifactId>dg-report</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>dg-parent</module>
-        <module>dg-persistence</module>
-        <module>dg-external-client</module>
-        <module>dg-endpoint</module>
-        <module>dg-report</module>
-
+        <module>dg-report-transaction</module>
     </modules>
 
 

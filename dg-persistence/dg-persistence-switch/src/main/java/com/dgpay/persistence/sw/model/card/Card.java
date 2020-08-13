@@ -12,7 +12,7 @@ public class Card {
     private Long pan;
     private Integer issue_date;
     private Integer active_date;
-    private Integer expire_date;
+    private Date expire_date;
     private Integer status;
     private Date insert_date;
     private Date modify_date;
@@ -56,11 +56,11 @@ public class Card {
         this.active_date = active_date;
     }
 
-    public Integer getExpire_date() {
+    public Date getExpire_date() {
         return expire_date;
     }
 
-    public void setExpire_date(Integer expire_date) {
+    public void setExpire_date(Date expire_date) {
         this.expire_date = expire_date;
     }
 

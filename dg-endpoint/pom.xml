@@ -15,6 +15,7 @@
     <modules>
         <module>dg-endpoint-payment</module>
         <module>dg-endpoint-notification</module>
+        <module>dg-endpoint-report</module>
     </modules>
 
 
