@@ -13,7 +13,6 @@
         <module>dg-persistence</module>
         <module>dg-external-client</module>
         <module>dg-endpoint</module>
-        <module>dg-report</module>
     </modules>
 
 

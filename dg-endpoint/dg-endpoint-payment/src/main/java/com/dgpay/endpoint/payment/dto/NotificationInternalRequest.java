@@ -1,4 +1,4 @@
-package com.dgpay.endpoint.managment.dto;
+package com.dgpay.endpoint.payment.dto;
 
 /**
  * @author Mohammadreza Momeni (mohamad7012@gmail.com)
