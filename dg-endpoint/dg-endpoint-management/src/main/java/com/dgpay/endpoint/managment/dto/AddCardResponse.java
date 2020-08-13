@@ -1,4 +1,4 @@
-package com.dgpay.endpoint.payment.dto;
+package com.dgpay.endpoint.managment.dto;
 
 import java.util.Date;
 

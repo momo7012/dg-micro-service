@@ -27,5 +27,15 @@
             <groupId>com.dgpay.sw</groupId>
             <artifactId>dg-persistence-switch</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.dgpay.sw</groupId>
+            <artifactId>dg-external-cilent-provider2</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.dgpay.sw</groupId>
+            <artifactId>dg-external-client-provider1</artifactId>
+        </dependency>
     </dependencies>
 </project>

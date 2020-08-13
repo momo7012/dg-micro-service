@@ -1,6 +1,4 @@
-package com.dgpay.endpoint.payment.dto;
-
-import java.util.Date;
+package com.dgpay.endpoint.managment.dto;
 
 /**
  * @author Mohammadreza Momeni (mohamad7012@gmail.com)

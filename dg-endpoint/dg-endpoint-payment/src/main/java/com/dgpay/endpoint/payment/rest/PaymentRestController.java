@@ -1,9 +1,8 @@
 package com.dgpay.endpoint.payment.rest;
 
-import com.dgpay.endpoint.payment.dto.AddCardRequest;
-import com.dgpay.endpoint.payment.dto.AddCardResponse;
-import com.dgpay.endpoint.payment.dto.CardListRequest;
-import com.dgpay.endpoint.payment.dto.DeleteCardRequest;
+import com.dgpay.endpoint.payment.dto.*;
+import com.dgpay.external.client.service.Provider1Service;
+import com.dgpay.external.client.service.Provider2Service;
 import com.dgpay.persistence.sw.model.card.Card;
 import com.dgpay.persistence.sw.servcie.card.CardPersistenceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Mohammadreza Momeni (mohamad7012@gmail.com)
@@ -22,42 +23,35 @@ import java.util.List;
 @RequestMapping("/payment/v1/service/")
 public class PaymentRestController {
 
-    // TODO: 8/12/2020 list
-    // TODO: 8/12/2020 add
-    // TODO: 8/12/2020 delete
-    // TODO: 8/12/2020 transaction
+    @Autowired
+    private Provider1Service provider1Service;
 
     @Autowired
-    private CardPersistenceService cardPersistenceService;
+    private Provider2Service provider2Service;
 
-    @PostMapping(value = "getCardList")
-    public List<Card> getCardList(@RequestBody CardListRequest request) {
+    @PostMapping(value = "transfer")
+    public void transfer(@RequestBody TransferRequest request) {
 
-        List<Card> cards = cardPersistenceService.getCardListByCustomerNumber(request.getCustomerNumber());
+        String pan = request.getPan();
 
-        return cards;
-    }
+        HashMap<String, Object> holder = new HashMap<>();
+        holder.put("pan", pan);
+        holder.put("destination", request.getDestination());
+        holder.put("cvv2", request.getCvv2());
+        holder.put("expireDate", request.getExpireDate());
+        holder.put("pin2", request.getPin2());
+        holder.put("amount", request.getAmount());
 
-    @PostMapping(value = "addCard")
-    public AddCardResponse addCard(@RequestBody AddCardRequest request) {
+        boolean process = false;
+        if (pan.substring(0, 4).equals("6037")) {
+            process = provider1Service.process(holder);
+        } else {
+            process = provider2Service.process(holder);
+        }
 
-        Card card = cardPersistenceService.addCard(request.getCustomerNumber());
-
-        AddCardResponse addCardResponse = new AddCardResponse();
-
-        addCardResponse.setExpire_date(card.getExpire_date());
-        addCardResponse.setPan(card.getPan());
-        addCardResponse.setPin(card.getPin());
-        addCardResponse.setPin2(card.getPin2());
-
-        return addCardResponse;
-    }
-
-    @PostMapping(value = "deleteCard")
-    public void deleteCard(@RequestBody DeleteCardRequest request){
-
-        cardPersistenceService.deleteCardByPanAndCustomerNumber(request.getPan(), request.getCustomerNumber());
+        if (process){
+            // TODO: 8/13/2020 send sms
+        }
 
     }
-
 }
