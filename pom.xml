@@ -14,6 +14,7 @@
         <module>dg-external-client</module>
         <module>dg-endpoint</module>
         <module>dg-report</module>
+        <module>dg-common</module>
 
     </modules>
 
