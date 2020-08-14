@@ -13,8 +13,6 @@ public class TransactionSumCountPerDate {
     private Integer cdate;
     private Long count_success;
     private Long count_unsuccessful;
-    private Long amount_success;
-    private Long amount_unsuccessful;
 
     public Long getPan() {
         return pan;
@@ -64,19 +62,4 @@ public class TransactionSumCountPerDate {
         this.count_unsuccessful = count_unsuccessful;
     }
 
-    public Long getAmount_success() {
-        return amount_success;
-    }
-
-    public void setAmount_success(Long amount_success) {
-        this.amount_success = amount_success;
-    }
-
-    public Long getAmount_unsuccessful() {
-        return amount_unsuccessful;
-    }
-
-    public void setAmount_unsuccessful(Long amount_unsuccessful) {
-        this.amount_unsuccessful = amount_unsuccessful;
-    }
 }

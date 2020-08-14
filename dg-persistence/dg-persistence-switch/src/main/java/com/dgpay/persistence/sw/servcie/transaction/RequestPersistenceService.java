@@ -25,7 +25,7 @@ public class RequestPersistenceService {
         Date date = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyMMdd");
         request.setAmount((Long) obj.get("amount"));
-        request.setPan((String) obj.get("pan"));
+        request.setPan((Long) obj.get("pan"));
         request.setPan2((Long) obj.get("pan2"));
         request.setCdate(Integer.valueOf(simpleDateFormat.format(date)));
         request.setCtime(new SimpleDateFormat("HHmmss").format(date));

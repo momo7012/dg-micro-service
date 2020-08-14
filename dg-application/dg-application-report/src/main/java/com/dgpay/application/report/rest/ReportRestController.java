@@ -25,9 +25,9 @@ public class ReportRestController {
 
 
     @PostMapping(value = "/getReport")
-    public List<TransactionSumCountPerDate> getReport(@RequestBody ReportRequest request) {
+    public TransactionSumCountPerDate getReport(@RequestBody ReportRequest request) {
 
-        List<TransactionSumCountPerDate> countPerDateList = countPerDatePersistenceService.sumCount(request.getDateFrom(), request.getDateTo(), request.getPan());
+        TransactionSumCountPerDate countPerDateList = countPerDatePersistenceService.sumCount(request.getDateFrom(), request.getDateTo(), request.getPan());
 
 
         return countPerDateList;

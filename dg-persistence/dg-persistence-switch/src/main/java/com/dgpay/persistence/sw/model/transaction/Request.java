@@ -42,7 +42,7 @@ public class Request {
         return pan;
     }
 
-    public void setPan(String pan) {
+    public void setPan(Long pan) {
         this.pan = pan;
     }
 

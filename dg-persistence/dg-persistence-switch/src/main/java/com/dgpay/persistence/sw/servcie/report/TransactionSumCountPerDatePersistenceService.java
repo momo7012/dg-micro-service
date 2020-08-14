@@ -21,7 +21,7 @@ public class TransactionSumCountPerDatePersistenceService {
     private TransactionSumCountPerDateDao transactionSumCountPerDateDao;
 
 
-    public List<TransactionSumCountPerDate> sumCount(String dateFrom, String dateTo, String pan) {
+    public TransactionSumCountPerDate sumCount(String dateFrom, String dateTo, String pan) {
 
         Date date = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyMMdd");
@@ -36,6 +36,25 @@ public class TransactionSumCountPerDatePersistenceService {
             countList = transactionSumCountPerDateDao.getDateBetween(dateFrom, dateTo, pan);
         }
 
-        return countList;
+
+        if (countList.size() > 1) {
+            TransactionSumCountPerDate obj = new TransactionSumCountPerDate();
+            obj.setCount_success(0L);
+            obj.setCount_unsuccessful(0L);
+            for (TransactionSumCountPerDate sumCountPerDate : countList) {
+                obj.setCount_success(sumCountPerDate.getCount_success() + obj.getCount_success());
+                obj.setCount_unsuccessful(sumCountPerDate.getCount_unsuccessful() + obj.getCount_success());
+            }
+            return obj;
+        }
+
+        return countList.get(0);
+    }
+
+    public void calcForDay(Date yesterday) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyMMdd");
+        String currentDate = simpleDateFormat.format(yesterday);
+
+        transactionSumCountPerDateDao.insertDaily(currentDate);
     }
 }

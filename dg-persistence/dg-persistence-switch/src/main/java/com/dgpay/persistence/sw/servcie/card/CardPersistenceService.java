@@ -38,12 +38,12 @@ public class CardPersistenceService {
 
     private String generatePin(int type) {
         // TODO: 8/13/2020 generate pin
-        return null;
+        return "1111";
     }
 
     private Long generatePan() {
         // TODO: 8/13/2020 create pan
-        return 111111111L;
+        return 6037997300000111L;
     }
 
     public List<Card> getCardListByCustomerNumber(Long customerNumber) {
