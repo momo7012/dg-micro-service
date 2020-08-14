@@ -21,19 +21,19 @@ public class TransactionSumCountPerDatePersistenceService {
     private TransactionSumCountPerDateDao transactionSumCountPerDateDao;
 
 
-    public List<TransactionSumCountPerDate> sumCount(String dateFrom, String dateTo) {
+    public List<TransactionSumCountPerDate> sumCount(String dateFrom, String dateTo, String pan) {
 
         Date date = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyMMdd");
         String currentDate = simpleDateFormat.format(date);
         List<TransactionSumCountPerDate> countList = null;
         if (currentDate.equals(dateTo) && currentDate.equals(dateFrom)) {
-            countList = transactionSumCountPerDateDao.getCurrentDate(currentDate);
+            countList = transactionSumCountPerDateDao.getCurrentDate(currentDate, pan);
         } else if (currentDate.equals(dateTo)) {
             Date addDays = DateUtils.addDays(date, -1);
-            countList = transactionSumCountPerDateDao.getDates(dateFrom, addDays, currentDate);
+            countList = transactionSumCountPerDateDao.getDates(dateFrom, addDays, currentDate, pan);
         } else {
-            countList = transactionSumCountPerDateDao.getDateBetween(dateFrom, dateTo);
+            countList = transactionSumCountPerDateDao.getDateBetween(dateFrom, dateTo, pan);
         }
 
         return countList;

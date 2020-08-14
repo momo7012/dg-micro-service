@@ -85,17 +85,7 @@
                 <version>${revision}${changelist}</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.dgpay.sw</groupId>
-                <artifactId>dg-external-cilent-provider2</artifactId>
-                <version>${revision}${changelist}</version>
-            </dependency>
 
-            <dependency>
-                <groupId>com.dgpay.sw</groupId>
-                <artifactId>dg-external-client-provider1</artifactId>
-                <version>${revision}${changelist}</version>
-            </dependency>
 
             <dependency>
                 <groupId>com.dgpay.sw</groupId>
@@ -103,11 +93,7 @@
                 <version>${revision}${changelist}</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.dgpay.sw</groupId>
-                <artifactId>dg-external-client-notification</artifactId>
-                <version>${revision}${changelist}</version>
-            </dependency>
+
 
             <dependency>
                 <groupId>org.apache.commons</groupId>

@@ -17,9 +17,11 @@ public class CustomerPersistenceService {
     @Autowired
     private CustomerDao customerDao;
 
-    public void getCustomer(Long uid){
+    public Customer getCustomer(Long uid){
 
 
         Customer customer = customerDao.selectByUid(uid);
+        return customer;
     }
 }
+

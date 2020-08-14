@@ -36,6 +36,7 @@ public class TransactionSumCountPerDateDao {
             "  and q.cdate = :date\n" +
             "  and q.PAN = c.PAN\n" +
             "  and c.CUSTOMER_UID = cus.UID\n" +
+            "  and q.pan = :pan\n" +
             "group by q.pan,\n" +
             "         cus.UID,\n" +
             "         c.UID,\n" +
@@ -60,13 +61,14 @@ public class TransactionSumCountPerDateDao {
             "  and q.cdate = :date\n" +
             "  and q.PAN = c.PAN\n" +
             "  and c.CUSTOMER_UID = cus.UID\n" +
+            "  and q.pan = :pan\n" +
             "group by q.pan,\n" +
             "         cus.UID,\n" +
             "         c.UID,\n" +
             "         q.CDATE";
 
 
-    String sqlDateBetween = "select * from report.TRANSACTION_SUM_COUNT_PER_DATE where cdate between :dateFrom and :dateTo";
+    String sqlDateBetween = "select * from report.TRANSACTION_SUM_COUNT_PER_DATE where cdate between :dateFrom and :dateTo and pan =:pan";
 
 
     @Autowired
@@ -77,27 +79,30 @@ public class TransactionSumCountPerDateDao {
     }
 
 
-    public List<TransactionSumCountPerDate> getDates(String dateFrom, Date dateTo, String currentDate) {
+    public List<TransactionSumCountPerDate> getDates(String dateFrom, Date dateTo, String currentDate, String pan) {
         SqlParameterSource namedParameters = new MapSqlParameterSource()
                 .addValue("dateFrom", dateFrom)
                 .addValue("dateTo", dateTo)
-                .addValue("date", currentDate);
+                .addValue("date", currentDate)
+                .addValue("pan", pan);
         return jdbcTemplate.query(sqlDateBetween, namedParameters, new BeanPropertyRowMapper<>(TransactionSumCountPerDate.class));
 
     }
 
-    public List<TransactionSumCountPerDate> getDateBetween(String dateFrom, String dateTo) {
+    public List<TransactionSumCountPerDate> getDateBetween(String dateFrom, String dateTo, String pan) {
         SqlParameterSource namedParameters = new MapSqlParameterSource()
                 .addValue("dateFrom", dateFrom)
-                .addValue("dateTo", dateTo);
+                .addValue("dateTo", dateTo)
+                .addValue("pan", pan);
         return jdbcTemplate.query(sqlDateBetween, namedParameters, new BeanPropertyRowMapper<>(TransactionSumCountPerDate.class));
 
     }
 
-    public List<TransactionSumCountPerDate> getCurrentDate(String currentDate) {
+    public List<TransactionSumCountPerDate> getCurrentDate(String currentDate, String pan) {
 
         SqlParameterSource namedParameters = new MapSqlParameterSource()
-                .addValue("date", currentDate);
+                .addValue("date", currentDate)
+                .addValue("pan", pan);
         return jdbcTemplate.query(sqlCurrentDate, namedParameters, new BeanPropertyRowMapper<>(TransactionSumCountPerDate.class));
 
     }

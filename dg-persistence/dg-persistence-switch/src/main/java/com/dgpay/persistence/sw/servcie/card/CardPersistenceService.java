@@ -56,4 +56,9 @@ public class CardPersistenceService {
 
         cardDao.deleteCard(pan, customerNumber);
     }
+
+    public Card getCardInfo(String pan) {
+
+        return cardDao.selectByPan(pan);
+    }
 }

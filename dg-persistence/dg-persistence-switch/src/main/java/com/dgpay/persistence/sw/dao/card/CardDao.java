@@ -20,6 +20,7 @@ public class CardDao {
 
 
     String sqlSelectCardByCusUid = "select * from card.card where customer_uid = :uid";
+    String sqlSelectByPan = "select * from card.card where pan = :pan";
     String sqlDelete = "delete from card.card where customer_uid = :uid and pan=:pan";
 
     @Autowired
@@ -41,5 +42,12 @@ public class CardDao {
                 .addValue("uid", customerNumber)
                 .addValue("pan", pan);
         jdbcTemplate.query(sqlSelectCardByCusUid, namedParameters, new BeanPropertyRowMapper<>(Card.class));
+    }
+
+    public Card selectByPan(String pan) {
+        SqlParameterSource namedParameters = new MapSqlParameterSource()
+                .addValue("pan", pan);
+        return jdbcTemplate.queryForObject(sqlSelectByPan, namedParameters, new BeanPropertyRowMapper<>(Card.class));
+
     }
 }

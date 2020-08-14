@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>dg-parent</artifactId>
+        <groupId>com.dgpay.sw</groupId>
+        <version>${revision}${changelist}</version>
+        <relativePath>../dg-parent/pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>dg-application</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>dg-application-payment</module>
+        <module>dg-application-notification</module>
+        <module>dg-application-report</module>
+        <module>dg-application-management</module>
+    </modules>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

@@ -6,18 +6,26 @@ package com.dgpay.persistence.sw.model.transaction;
  */
 public class Response {
 
-    private Integer trno;
+    private Long trno;
     private Integer cdate;
     private Integer resp;
     private Integer rtime;
-    private Integer ctime;
+    private String ctime;
 
-    public Integer getTrno() {
+    public Long getTrno() {
         return trno;
     }
 
-    public void setTrno(Integer trno) {
+    public void setTrno(Long trno) {
         this.trno = trno;
+    }
+
+    public void setCtime(String ctime) {
+        this.ctime = ctime;
+    }
+
+    public String getCtime() {
+        return ctime;
     }
 
     public Integer getCdate() {
@@ -44,11 +52,4 @@ public class Response {
         this.rtime = rtime;
     }
 
-    public Integer getCtime() {
-        return ctime;
-    }
-
-    public void setCtime(Integer ctime) {
-        this.ctime = ctime;
-    }
 }
