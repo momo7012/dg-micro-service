@@ -12,5 +12,16 @@
     <artifactId>dg-endpoint-notification</artifactId>
 
 
+    <dependencies>
+        <dependency>
+            <groupId>com.dgpay.sw</groupId>
+            <artifactId>dg-persistence-notification</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.dgpay.sw</groupId>
+            <artifactId>dg-external-client-notification</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

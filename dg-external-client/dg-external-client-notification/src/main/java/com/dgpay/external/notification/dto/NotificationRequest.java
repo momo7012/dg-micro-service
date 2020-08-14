@@ -9,6 +9,16 @@ public class NotificationRequest {
     private String msg;
     private String target;
 
+    public NotificationRequest(){
+
+    }
+
+    public NotificationRequest(String msg, String target){
+        this.msg = msg;
+        this.target = target;
+
+    }
+
     public String getMsg() {
         return msg;
     }
