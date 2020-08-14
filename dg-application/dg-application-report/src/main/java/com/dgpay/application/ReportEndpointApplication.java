@@ -5,12 +5,14 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author Mohammadreza Momeni (mohamad7012@gmail.com)
  * 8/13/2020
  */
 @SpringBootApplication
+@ComponentScan(basePackages = "com.dgpay")
 public class ReportEndpointApplication implements CommandLineRunner {
 
     @Autowired

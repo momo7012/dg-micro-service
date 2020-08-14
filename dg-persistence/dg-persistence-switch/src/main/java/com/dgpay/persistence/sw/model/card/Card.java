@@ -143,4 +143,25 @@ public class Card {
     public void setPin2(String pin2) {
         this.pin2 = pin2;
     }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "uid=" + uid +
+                ", pan=" + pan +
+                ", issue_date=" + issue_date +
+                ", active_date=" + active_date +
+                ", expire_date=" + expire_date +
+                ", status=" + status +
+                ", insert_date=" + insert_date +
+                ", modify_date=" + modify_date +
+                ", customer_uid=" + customer_uid +
+                ", pin='" + pin + '\'' +
+                ", incorrect_pin1_try=" + incorrect_pin1_try +
+                ", incorrect_pin2_try=" + incorrect_pin2_try +
+                ", incorrect_cvv1_try=" + incorrect_cvv1_try +
+                ", incorrect_cvv2_try=" + incorrect_cvv2_try +
+                ", pin2='" + pin2 + '\'' +
+                '}';
+    }
 }

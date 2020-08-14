@@ -7,6 +7,7 @@ import com.dgpay.application.managment.dto.DeleteCardRequest;
 import com.dgpay.persistence.sw.model.card.Card;
 import com.dgpay.persistence.sw.servcie.card.CardPersistenceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/card/v1/service/")
+@ComponentScan(basePackages = "com.dgpay.persistence.sw")
 public class CardManagementRestController {
 
     @Autowired

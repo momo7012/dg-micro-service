@@ -12,6 +12,7 @@ import com.dgpay.persistence.sw.servcie.customer.CustomerPersistenceService;
 import com.dgpay.persistence.sw.servcie.transaction.RequestPersistenceService;
 import com.dgpay.persistence.sw.servcie.transaction.ResponsePersistenceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,7 @@ import java.util.HashMap;
  */
 @RestController
 @RequestMapping("/payment/v1/service/")
+@ComponentScan(basePackages = {"com.dgpay.application.payment.external", "com.dgpay.persistence.sw"})
 public class PaymentRestController {
 
     @Autowired

@@ -4,7 +4,7 @@ CREATE SCHEMA IF NOT EXISTS TRANSACTION;
 CREATE SCHEMA IF NOT EXISTS REPORT;
 
 /*==============================================================*/
-drop table if exists CARD.SCARD;
+drop table if exists CARD.CARD;
 drop table if exists COMMON.CUSTOMER;
 drop table if exists transaction.request;
 drop table if exists transaction.response;
@@ -16,18 +16,18 @@ create table CARD.CARD
 (
     UID                DECIMAL(19)        not null AUTO_INCREMENT,
     PAN                DECIMAL(19)        not null,
-    ISSUE_DATE         INTEGER            not null,--yyMMdd
+    ISSUE_DATE         INTEGER           ,
     ACTIVE_DATE        INTEGER,
-    EXPIRE_DATE        INTEGER            not null,--yyMM
-    STATUS             SMALLINT           not null,
-    INSERT_DATE        TIMESTAMP(6)       not null,
+    EXPIRE_DATE        INTEGER           ,
+    STATUS             SMALLINT          ,
+    INSERT_DATE        TIMESTAMP(6)      ,
     MODIFY_DATE        TIMESTAMP(6),
-    CUSTOMER_UID       DECIMAL(12)        not null,
+    CUSTOMER_UID       DECIMAL(12)       ,
     PIN                CHAR(16),
-    INCORRECT_PIN1_TRY SMALLINT default 0 not null,
-    INCORRECT_PIN2_TRY SMALLINT default 0 not null,
-    INCORRECT_CVV1_TRY SMALLINT default 0 not null,
-    INCORRECT_CVV2_TRY SMALLINT default 0 not null,
+    INCORRECT_PIN1_TRY SMALLINT default 0,
+    INCORRECT_PIN2_TRY SMALLINT default 0,
+    INCORRECT_CVV1_TRY SMALLINT default 0,
+    INCORRECT_CVV2_TRY SMALLINT default 0,
     PIN2               VARCHAR(50),
     primary key (UID)
 );

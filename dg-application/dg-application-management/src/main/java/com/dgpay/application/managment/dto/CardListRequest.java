@@ -15,4 +15,11 @@ public class CardListRequest {
     public void setCustomerNumber(Long customerNumber) {
         this.customerNumber = customerNumber;
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "customerNumber=" + customerNumber +
+                '}';
+    }
 }
